@@ -1,0 +1,99 @@
+
+
+
+
+html { width: 100%; height:100%;}
+
+
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.w-full {
+  width: 100%;
+}
+.rad-6 {
+  border-radius: 6px;
+}
+.b-none {
+  border: none;
+}
+.bg-eee {
+  background-color: #eee;
+}
+.d-block {
+  display: block;
+}
+.p-10 {
+  padding: 10px;
+}
+.mb-20 {
+  margin-bottom: 20px;
+}
+.login{
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 14px;
+}
+.login .img-left{
+  width: 50%;
+  background: url('../images/LOG.png') center;
+  background-size: cover;
+}
+.login .img-left-s{
+  width: 50%;
+  background: url("image.png") center;
+  background-size: cover;
+}
+.login .img-left-P{
+  width: 50%;
+  background: url("image.png") center;
+  background-size: cover;
+}
+
+.login .form-input input{
+  width: 100%;
+  height: 45px;
+  padding-left: 10px;
+  margin-bottom: 20px;
+  box-sizing: border-box;
+  box-shadow: none;
+ 
+  outline: none;
+  background: #eee;
+}
+.login .custom-checkbox .custom-control-input:checked ~ .custom-control-label::before{
+  background-color: #007bff !important;
+  border: 0px;
+}
+.login .form-box button[type="submit"]{
+  cursor: pointer;
+
+  color: #fff;
+  font-size: 90%;
+  font-weight: bold;
+  letter-spacing: .1rem;
+  transition: 0.5s;
+  padding: 12px;
+}
+form button{
+  width: 110px;
+  height: 44px;
+  color: #091A20;
+   
+  background-image: linear-gradient(0deg, #7ca879, #a5bf8b);
+  text-align: center;
+  font-size: 18px;
+  text-transform: uppercase;
+  border-radius: 10px;
+  font-weight: 500;
+  border: none;
+} 
+
+
+

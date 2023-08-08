@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!--From https://codepen.io/frytyler/pen/EGdtg-->
+
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ML API</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+      integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/all.min.css') }}">
+  </head>
+
+
+
+
+<body>
+  <section class="login bg-body-tertiary pt-5">
+    <div class="container pt-5">
+      <div class="row px-3 pt-5">
+        <div class="col-lg-10 col-xl-9 card flex-row mx-auto px-0 " style="border: 2px solid #AAC8A7">
+          <div class="img-left-s d-none d-md-flex"></div>
+
+          <div class="card-body p-5">
+
+            <h1 class="title text-center text-uppercase mt-2 mb-2 " style="color: #AAC8A7;">
+              Enter Your Health Information
+            </h1>
+            <form action="{{ url_for('predict') }}" method="post">
+              <form class="form-box px-3">
+                <div class="form-input position-relative">
+
+                  <label for="gender">Gender:</label>
+                  <select name="gender" id="gender" class="d-block mb-20 w-full p-10 b-none bg-eee rad-6 ">
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Other">Other</option>
+
+                  </select>
+                </div>
+                <div class="form-input position-relative">
+                  <label for="age">Age:</label>
+                  <input type="number" name="age" id="age" class="form-control" aria-label="Username"
+                    aria-describedby="basic-addon1" required>
+                </div>
+                <div class="form-input position-relative">
+                  <label for="blood_glucose_level">Blood Glucose Level:</label>
+                  <input type="number" name="blood_glucose_level" id="blood_glucose_level" step="0.01"
+                    class="form-control" aria-label="Username" aria-describedby="basic-addon1" required>
+                </div>
+                <div class="form-input position-relative">
+                  <label for="hypertension">Hypertension:</label>
+                  <select name="hypertension" id="hypertension" class="d-block mb-20 w-full p-10 b-none bg-eee rad-6 ">
+                    <option>No</option>
+                    <option> YES</option>
+                  </select>
+                </div>
+                <div class="form-input position-relative">
+                  <label for="heart_disease">Heart Disease:</label>
+                  <select name="heart_disease" id="heart_disease"
+                    class="d-block mb-20 w-full p-10 b-none bg-eee rad-6 ">
+                    <option>No</option>
+                    <option> YES</option>
+                  </select>
+                </div>
+                <div class="form-input position-relative">
+                  <label for="bmi">BMI:</label>
+                  <input type="number" name="bmi" id="bmi" step="0.01" class="form-control" aria-label="Username"
+                    aria-describedby="basic-addon1" required>
+                </div>
+                <div class="form-input position-relative">
+                  <label for="HbA1c_level">HbA1c Level:</label>
+                  <input type="number" name="HbA1c_level" id="HbA1c_level" step="0.01" class="form-control"
+                    aria-label="Username" aria-describedby="basic-addon1" required>
+                </div>
+
+                <div class="mb-3">
+                  <button type="submit" value="Submit" class=" ">
+                    Submit
+                  </button>
+                </div>
+              </form>
+            </form>
+
+            {% if prediction is defined %}
+            <h2>Diabetes Prediction Result:</h2>
+            {% if prediction == 1 %}
+            <p>The patient is predicted to have diabetes.</p>
+            {% else %}
+            <p>The patient is predicted to not have diabetes.</p>
+            {% endif %}
+            <a href="{{ url_for('home') }}">Try again</a>
+            {% endif %}
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+    crossorigin="anonymous"></script>
+  <script src="JS/script.js"></script>
+
+</body>
+
+</html>

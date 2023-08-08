@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Predict Diabetes</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/all.min.css') }}">
+</head>
+<body>
+  <h1>Diabetes Prediction Result:</h1>
+  {% if prediction == 1 %}
+    <p>The patient is predicted to have diabetes.</p>
+  {% else %}
+    <p>The patient is predicted to not have diabetes.</p>
+  {% endif %}
+  <br>
+  <a href="{{ url_for('home') }}">Go back to the home page</a>
+</body>
+</html>
